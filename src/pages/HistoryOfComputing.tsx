@@ -1,7 +1,10 @@
 // import { toAbacus } from "../../functions.ts";
+import { useState } from "react";
 
 // Colors: { Yellow: FFC107, Blue: 2B78E4}
 function HistoryOfComputing() {
+
+  const [tryAbacus, setTryAbacus] = useState(false);
 
   const dates:string[] = [
     "500 BC",
@@ -44,10 +47,16 @@ function HistoryOfComputing() {
         <div className="p-24 grid place-content-center">
           <div className="w-[358px] h-[272px] border-[10px] border-[#D9D9D9]">
             <div className="h-[80px] flex gap-16 justify-center">
-              {Array.from({ length: 4 }).map((_) => (
+              {Array.from({ length: 4 }).map((_, i) => (
                 <div className="flex flex-col items-center">
-                  <div className="w-[57px] absolute h-[24px] bg-[#202020] rounded-xl"></div>
-                  <div className="w-[57px] absolute h-[24px] mt-6 bg-[#202020] rounded-xl"></div>
+                  <div
+                    id={`fives-col-${i + 1}-1`}
+                    className="w-[57px] absolute h-[24px] bg-[#202020] rounded-xl"
+                  ></div>
+                  <div
+                    id={`fives-col-${i + 1}-2`}
+                    className="w-[57px] absolute h-[24px] mt-6 bg-[#202020] rounded-xl"
+                  ></div>
                   <div className="w-[10px] h-[80px] bg-[#D9D9D9]"></div>
                 </div>
               ))}
@@ -56,21 +65,23 @@ function HistoryOfComputing() {
             <div className="flex gap-16 justify-center">
               {Array.from({ length: 4 }).map((_, i) => (
                 <div
-                  id={`ones-${i + 1}`}
                   className="flex flex-col items-center"
                 >
-                  <div className="w-[57px] absolute h-[24px] mt-[68px] bg-[#202020] rounded-xl"></div>
-                  <div className="w-[57px] absolute h-[24px] mt-[92px] bg-[#202020] rounded-xl"></div>
-                  <div className="w-[57px] absolute h-[24px] mt-[116px] bg-[#202020] rounded-xl"></div>
-                  <div className="w-[57px] absolute h-[24px] mt-[140px] bg-[#202020] rounded-xl"></div>
+                  <div id={`ones-col-${i + 1}-1`} className="w-[57px] absolute h-[24px] mt-[68px] bg-[#202020] rounded-xl"></div>
+                  <div id={`ones-col-${i + 1}-2`} className="w-[57px] absolute h-[24px] mt-[92px] bg-[#202020] rounded-xl"></div>
+                  <div id={`ones-col-${i + 1}-3`} className="w-[57px] absolute h-[24px] mt-[116px] bg-[#202020] rounded-xl"></div>
+                  <div id={`ones-col-${i + 1}-4`} className="w-[57px] absolute h-[24px] mt-[140px] bg-[#202020] rounded-xl"></div>
                   <div className="w-[10px] h-[170px] bg-[#D9D9D9]"></div>
                 </div>
               ))}
             </div>
           </div>
-          <button className="py-4 w-[358px] bg-[#2B78E4] text-xl text-white mt-12">
+          <button onClick={() => setTryAbacus(t => !t)} className="py-4 w-[358px] bg-[#2B78E4] text-xl text-white mt-12">
             Try The Abacus
           </button>
+          <input style={{
+            display: tryAbacus ? "inline" : "none"
+          }} className="h-16 border-2 text-2xl mt-4 text-center border-black" type="number" name="abacus-input" id="abacus-input" />
         </div>
       </div>
     </>
