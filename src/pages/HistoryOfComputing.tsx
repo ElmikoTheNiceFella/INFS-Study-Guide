@@ -1,5 +1,6 @@
 // import { toAbacus } from "../../functions.ts";
 import { useState } from "react";
+import '../App.css';
 
 // Colors: { Yellow: FFC107, Blue: 2B78E4}
 function HistoryOfComputing() {
