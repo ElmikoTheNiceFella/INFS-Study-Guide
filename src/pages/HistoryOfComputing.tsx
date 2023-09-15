@@ -65,26 +65,39 @@ function HistoryOfComputing() {
             <div className="h-2 bg-[#D9D9D9]"></div>
             <div className="flex gap-16 justify-center">
               {Array.from({ length: 4 }).map((_, i) => (
-                <div
-                  className="flex flex-col items-center"
-                >
-                  <div id={`ones-col-${i + 1}-1`} className="w-[57px] absolute h-[24px] mt-[68px] bg-[#202020] rounded-xl"></div>
-                  <div id={`ones-col-${i + 1}-2`} className="w-[57px] absolute h-[24px] mt-[92px] bg-[#202020] rounded-xl"></div>
-                  <div id={`ones-col-${i + 1}-3`} className="w-[57px] absolute h-[24px] mt-[116px] bg-[#202020] rounded-xl"></div>
-                  <div id={`ones-col-${i + 1}-4`} className="w-[57px] absolute h-[24px] mt-[140px] bg-[#202020] rounded-xl"></div>
+                <div className="flex flex-col items-center">
+                  {Array.from({ length: 4 }).map((_, index) => (
+                    <div
+                      style={{
+                        marginTop: 68 + index * 24 + "px",
+                      }}
+                      id={`ones-col-${i + 1}-${index+1}`}
+                      className="w-[57px] absolute h-[24px] bg-[#202020] rounded-xl"
+                    ></div>
+                  ))}
                   <div className="w-[10px] h-[170px] bg-[#D9D9D9]"></div>
                 </div>
               ))}
             </div>
           </div>
-          <button onClick={() => setTryAbacus(t => !t)} className="py-4 w-[358px] bg-[#2B78E4] text-xl text-white mt-12">
+          <button
+            onClick={() => setTryAbacus((t) => !t)}
+            className="py-4 w-[358px] bg-[#2B78E4] text-xl text-white mt-12"
+          >
             Try The Abacus
           </button>
-          <input style={{
-            opacity: tryAbacus ? "1" : "0",
-            transform: `translateY(${tryAbacus ? 0 : -10}%)`,
-            transition: "0.2s ease"
-          }} className="h-16 border-2 text-2xl mt-4 text-center border-black" type="number" name="abacus-input" id="abacus-input" disabled={!tryAbacus} />
+          <input
+            style={{
+              opacity: tryAbacus ? "1" : "0",
+              transform: `translateY(${tryAbacus ? 0 : -10}%)`,
+              transition: "0.2s ease",
+            }}
+            className="h-16 border-2 text-2xl mt-4 text-center border-black"
+            type="number"
+            name="abacus-input"
+            id="abacus-input"
+            disabled={!tryAbacus}
+          />
         </div>
       </div>
     </>
