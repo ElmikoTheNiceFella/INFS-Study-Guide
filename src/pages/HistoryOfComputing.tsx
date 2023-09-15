@@ -80,8 +80,10 @@ function HistoryOfComputing() {
             Try The Abacus
           </button>
           <input style={{
-            display: tryAbacus ? "inline" : "none"
-          }} className="h-16 border-2 text-2xl mt-4 text-center border-black" type="number" name="abacus-input" id="abacus-input" />
+            opacity: tryAbacus ? "1" : "0",
+            transform: `translateY(${tryAbacus ? 0 : -10}%)`,
+            transition: "0.2s ease"
+          }} className="h-16 border-2 text-2xl mt-4 text-center border-black" type="number" name="abacus-input" id="abacus-input" disabled={!tryAbacus} />
         </div>
       </div>
     </>
