@@ -1,4 +1,4 @@
-export function toAbacus(num:number) {
+export function toAbacus(num:number):(string | string[]) {
   // We Stringify the number
   let numStr = String(num);
 
@@ -7,18 +7,22 @@ export function toAbacus(num:number) {
   if (numStr.length > 4) return "Number Too Long For This Abacus";
 
   // We initialize the array to fill it with the necessary data
-  let arr:string[] = [];
+  let arr: string[] = [];
 
   // We add the values to the abacus array
-  for(let i = 0; i < numStr.length; i++) {
-
+  for (let i = 0; i < numStr.length; i++) {
     // Get each number in the stringified number
     let value = +numStr[i];
 
     // Convert the value to an abacus readable value
-    arr[i] = String(value >= 5 ? value + 5 : value).padStart(2, '0');
+    arr[i] = String(value >= 5 ? value + 5 : value).padStart(2, "0");
   }
 
   // We add zeroes to fill the array
-  return Array.from({ length: 4 - numStr.length }).fill("00").concat(arr);
+  const finalArray = Array.from({ length: 4 - numStr.length })
+                          .fill("00")
+                          .concat(arr);
+
+  // Return unknown[] as string[]
+  return finalArray as string[];
 }
