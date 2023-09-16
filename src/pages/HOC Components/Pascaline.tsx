@@ -13,20 +13,16 @@ function Pascaline({ nextFunc, prevFunc }: PropType) {
 
   const handlePlus = (index: number) => {
     if (pascalineArray[index] < 9) {
-      console.log(knobRotation);
       setKnobRotation((prev) => {
         const arr = [...prev];
         arr[index] += 72;
         return arr;
       });
-      console.log(knobRotation);
-      console.log(pascalineArray);
       setPascalineArray((prev) => {
         const arr = [...prev];
         arr[index]++;
         return arr;
       });
-      console.log(pascalineArray);
     }
   };
 
