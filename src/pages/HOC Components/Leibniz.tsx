@@ -1,5 +1,9 @@
 function Leibniz() {
-  return <div>Leibniz</div>;
+  return (
+    <>
+      <div>helo word</div>
+    </>
+  );
 }
 
 export default Leibniz;
