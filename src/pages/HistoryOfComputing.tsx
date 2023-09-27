@@ -40,9 +40,10 @@ function HistoryOfComputing() {
         <Abacus nextFunc={handleNext} />
       ) : tracker == 2 ? (
         <Pascaline nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 3 ? <Leibniz /> :
-      (
-        ""
+      ) : tracker == 3 ? (
+        <Leibniz nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : (
+        "No More Slides"
       )}
     </>
   );

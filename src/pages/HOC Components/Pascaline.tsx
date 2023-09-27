@@ -83,17 +83,20 @@ function Pascaline({ nextFunc, prevFunc }: PropType) {
           </div>
           <div className="flex gap-20 justify-center">
             {Array.from({ length: 4 }).map((_, i) => (
-              <div key={"h" + i}>
-                <img
-                  style={{
-                    transform: `rotate(${knobRotation[i]}deg)`,
-                    transition: "0.2s ease",
-                  }}
-                  src={Rotatable}
-                  className="absolute ml-[6px] mt-[4.7px] w-[72px] "
-                  alt=""
-                />
-                <img src={Knob} alt="" />
+              <div>
+                <div key={"h" + i} className="flex justify-center items-center">
+                  <img
+                    style={{
+                      transform: `rotate(${knobRotation[i]}deg)`,
+                      transition: "0.2s ease",
+                    }}
+                    src={Rotatable}
+                    className="absolute mt-[-19px]"
+                    width={72}
+                    alt=""
+                  />
+                  <img src={Knob} alt="" />
+                </div>
                 <div className="flex justify-around pt-4">
                   <button style={buttonStyle} onClick={() => handleMinus(i)}>
                     -
