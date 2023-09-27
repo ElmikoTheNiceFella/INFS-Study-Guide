@@ -12,7 +12,7 @@ function Pascaline({ nextFunc, prevFunc }: PropType) {
   const [knobRotation, setKnobRotation] = useState([0, 0, 0, 0]);
 
   const handlePlus = (index: number) => {
-    if (pascalineArray[index] < 9) {
+    if (pascalineArray[index] <= 9) {
       setKnobRotation((prev) => {
         const arr = [...prev];
         arr[index] += 72;
@@ -20,7 +20,12 @@ function Pascaline({ nextFunc, prevFunc }: PropType) {
       });
       setPascalineArray((prev) => {
         const arr = [...prev];
-        arr[index]++;
+        if (pascalineArray[index] == 9 && index != 0) {
+          arr[index] = 0;
+          arr[index-1]++;
+        } else {
+          arr[index]++;
+        }
         return arr;
       });
     }
