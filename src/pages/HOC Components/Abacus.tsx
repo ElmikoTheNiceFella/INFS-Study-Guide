@@ -123,10 +123,9 @@ function Abacus({ nextFunc }: PropType) {
             borderColor: !Array.isArray(abacusArray) ? "#8e1537" : "black",
             outline: "none",
           }}
-          className="h-16 border-2 text-2xl mt-4 text-center"
+          className="h-16 border-2 text-2xl mt-4 text-center number-input"
           type="number"
           name="abacus-input"
-          id="abacus-input"
           disabled={!tryAbacus}
           value={abacusNumber}
           onChange={(e) => {
