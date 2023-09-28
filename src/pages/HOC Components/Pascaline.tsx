@@ -83,7 +83,7 @@ function Pascaline({ nextFunc, prevFunc }: PropType) {
           </div>
           <div className="flex gap-20 justify-center">
             {Array.from({ length: 4 }).map((_, i) => (
-              <div>
+              <div key={"knob-pas-"+i}>
                 <div key={"h" + i} className="flex justify-center items-center">
                   <img
                     style={{

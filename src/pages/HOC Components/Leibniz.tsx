@@ -10,7 +10,7 @@ type PropType = {
   prevFunc: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
-function Leibniz({ nextFunc, prevFunc }: PropType) {
+function Leibniz({ prevFunc }: PropType) {
   const [userInput, setUserInput] = useState(0);
   const [step, setStep] = useState(1);
   const [result, setResult] = useState<number[]>([0, 0, 0]);
