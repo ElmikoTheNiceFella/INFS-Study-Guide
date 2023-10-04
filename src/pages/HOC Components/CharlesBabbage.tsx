@@ -6,8 +6,8 @@ type PropType = {
 function CharlesBabbage({ prevFunc, nextFunc }: PropType) {
   return (
     <div>
-      <div className="grid grid-cols-2">
-        <div className="p-24">
+      <div className="flex justify-center items-center mt-16">
+        <div className="px-24 pt-12 w-1/2">
           <h1 className="text-4xl font-semibold">Charles Babbage</h1>
           <p className="text-xl mt-12 space-y-4">
             Mathematician, industrialist, philosopher, politician
@@ -36,7 +36,7 @@ function CharlesBabbage({ prevFunc, nextFunc }: PropType) {
         <img
           src="https://cdn.britannica.com/98/170698-050-95B7AC71/Charles-Babbage-1871.jpg"
           alt="charlesBabbage"
-          className="p-24"
+          className="px-24 pt-12"
           width={640}
         />
       </div>

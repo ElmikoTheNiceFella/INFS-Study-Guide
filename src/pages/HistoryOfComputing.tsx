@@ -11,7 +11,7 @@ import { useState } from "react";
 function HistoryOfComputing() {
   const [tracker, setTracker] = useState(1);
 
-  const dates: string[] = ["500 BC", "1642 AD", "1674 AD"];
+  const dates: string[] = ["500 BC", "1642 AD", "1674 AD", "#", "1805 AD", "1822-1836 AD"];
 
   const handleNext = () => {
     setTracker((t) => t + 1);
@@ -30,7 +30,7 @@ function HistoryOfComputing() {
               style={{
                 backgroundColor: i + 1 == tracker ? "#2B78E4" : "black",
               }}
-              className="font-semibold text-white px-6 py-2 rounded-full text-lg"
+              className="font-semibold text-white px-4 py-2 rounded-full text-sm"
             >
               {date}
             </p>
@@ -38,7 +38,7 @@ function HistoryOfComputing() {
               style={{
                 display: i + 1 == dates.length ? "none" : "block",
               }}
-              className="w-32 h-1 rounded-full bg-black"
+              className="w-12 h-1 rounded-full bg-black"
             ></div>
           </div>
         ))}
