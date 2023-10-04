@@ -3,6 +3,8 @@ import Abacus from "./HOC Components/Abacus";
 import Leibniz from "./HOC Components/Leibniz";
 import Pascaline from "./HOC Components/Pascaline";
 import Sorry from "./HOC Components/Sorry";
+import Loom from "./HOC Components/Loom";
+import CharlesBabbage from "./HOC Components/CharlesBabbage";
 import { useState } from "react";
 
 // Colors: { Yellow: FFC107, Blue: 2B78E4}
@@ -24,9 +26,12 @@ function HistoryOfComputing() {
       <div className="flex justify-center gap-4 py-4">
         {dates.map((date, i) => (
           <div key={i} className="flex justify-center items-center gap-4">
-            <p style={{
-              backgroundColor: i+1 == tracker ? "#2B78E4" : "black"
-            }} className="font-semibold text-white px-6 py-2 rounded-full text-lg">
+            <p
+              style={{
+                backgroundColor: i + 1 == tracker ? "#2B78E4" : "black",
+              }}
+              className="font-semibold text-white px-6 py-2 rounded-full text-lg"
+            >
               {date}
             </p>
             <div
@@ -45,7 +50,13 @@ function HistoryOfComputing() {
         <Pascaline nextFunc={handleNext} prevFunc={handlePrev} />
       ) : tracker == 3 ? (
         <Leibniz nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 4 ? <Sorry nextFunc={handleNext} prevFunc={handlePrev} /> : (
+      ) : tracker == 4 ? (
+        <Sorry nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : tracker == 5 ? (
+        <Loom nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : tracker == 6 ? (
+        <CharlesBabbage nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : (
         "No More Slides"
       )}
     </>
