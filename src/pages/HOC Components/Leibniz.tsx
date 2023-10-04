@@ -3,6 +3,9 @@ import Knob from "../../assets/Leb_Knob.svg";
 import KnobArrow from "../../assets/Leb_KnobArrow.svg";
 import Rotatable from "../../assets/Leb_Rotatable.svg";
 
+import MultiKnob from "../../assets/Leb_MultiplicationThing.svg";
+import MultiController from "../../assets/Leb_MultiplicationRotatable.svg";
+
 import { useState, useEffect } from "react";
 
 type PropType = {
@@ -13,8 +16,10 @@ type PropType = {
 function Leibniz({ prevFunc }: PropType) {
   const [userInput, setUserInput] = useState(0);
   const [step, setStep] = useState(1);
+  const [userInputDisplay, setUserInputDisplay] = useState<number[]>([0, 0, 0]);
   const [result, setResult] = useState<number[]>([0, 0, 0]);
   const [inputs, setInputs] = useState<number[]>([0, 0]);
+  const [multiplication, setMultiplication] = useState(0);
 
   const [operationStatus, setOperationStatus] = useState("-");
 
@@ -31,6 +36,7 @@ function Leibniz({ prevFunc }: PropType) {
     setStep((s) => s + 1);
     setOperationRotation((o) => o + 360);
     setUserInput(0);
+    console.log(inputs)
   };
 
   const handleAdd = () => {
@@ -47,31 +53,68 @@ function Leibniz({ prevFunc }: PropType) {
     setUserInput(0);
   };
 
+  const handleMultiply = () => {
+    setMultiplication(inputs[1]);
+    setOperationStatus(inputs[0] * inputs[1] + "-" + "MULTIPLIED");
+    setStep((s) => s + 1);
+    setUserInput(0);
+  };
+
   useEffect(() => {
-    if (step != 4) {
+    if (step == 1) {
+      setResult([0, 0, 0]);
+    } else if (step == 2) {
       setResult(
+        String(inputs[0])
+          .padStart(3, "0")
+          .split("")
+          .map((v) => +v)
+      );
+    } else if (step == 3) {
+      setResult(
+        String(inputs[1])
+          .padStart(3, "0")
+          .split("")
+          .map((v) => +v)
+      );
+    }
+
+    if (step != 4) {
+      setUserInputDisplay(
         String(userInput)
           .padStart(3, "0")
           .split("")
           .map((v) => +v)
       );
     } else {
-      operationStatus.split("-")[1] == "ADDED" ?
-        setResult(
-          String(operationStatus.split("-")[0])
-            .padStart(3, "0")
-            .split("")
-            .map((v) => +v)
-        )
-      : operationStatus.split("-")[1] == "SUBTRACTED" ?
-      setResult(
-        String(operationStatus.split("-")[0])
-          .padStart(3, "0")
-          .split("")
-          .map((v) => +v)
-      ) : console.log("hehe");
+      if (operationStatus.split("-")[1] == "MULTIPLIED")
+        setOperationRotation(
+          (o) => o + 360 * Math.ceil(Math.sqrt(multiplication))
+        );
+      operationStatus.split("-")[1] == "ADDED"
+        ? setResult(
+            String(operationStatus.split("-")[0])
+              .padStart(3, "0")
+              .split("")
+              .map((v) => +v)
+          )
+        : operationStatus.split("-")[1] == "SUBTRACTED"
+        ? setResult(
+            String(operationStatus.split("-")[0])
+              .padStart(3, "0")
+              .split("")
+              .map((v) => +v)
+          )
+        : operationStatus.split("-")[1] == "MULTIPLIED"
+        ? setResult(
+            String(operationStatus.split("-")[0])
+              .padStart(3, "0")
+              .split("")
+              .map((v) => +v)
+          )
+        : console.log("hehe");
     }
-  }, [userInput, operationStatus, step]);
+  }, [userInput, operationStatus, step, inputs]);
 
   return (
     <>
@@ -100,7 +143,7 @@ function Leibniz({ prevFunc }: PropType) {
             Next Slide
           </button> */}
         </div>
-        <div id="leibniz-machine" className="p-24">
+        <div id="leibniz-machine" className="px-24 pt-12">
           <h3 className="text-center text-2xl mb-4 w-[620px]">Top View</h3>
           <div className="w-[620px] h-[42px] bg-[#757575]">
             <div className="lebNums">
@@ -117,24 +160,40 @@ function Leibniz({ prevFunc }: PropType) {
           <div className="flex items-center mt-12">
             <div className="w-[432px] h-[147px] bg-[#D9D9D9] flex justify-center gap-[42px] items-center">
               {Array.from({ length: 3 }).map((_, i) => (
-                <div
-                  className="flex justify-center items-center"
-                  key={"leb-" + i}
-                >
-                  <img src={Knob} width={86} className="min-w-full" alt="" />
-                  <img
-                    src={KnobArrow}
-                    style={{
-                      rotate: `${-40 + 30 * result[i]}deg`,
-                      transition: "0.2s ease-out",
-                    }}
-                    className="absolute"
-                    alt=""
-                  />
+                <div>
+                  <p className="text-center -mt-2 mb-2 bg-white">
+                    {userInputDisplay[i]}
+                  </p>
+                  <div
+                    className="flex justify-center items-center"
+                    key={"leb-" + i}
+                  >
+                    <img src={Knob} width={86} className="min-w-full" alt="" />
+                    <img
+                      src={KnobArrow}
+                      style={{
+                        rotate: `${-40 + 30 * userInputDisplay[i]}deg`,
+                        transition: "0.2s ease-out",
+                      }}
+                      className="absolute"
+                      alt=""
+                    />
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="w-[183px] h-[183px] bg-[#D9D9D9]"></div>
+            <div className="w-[183px] h-[183px] bg-[#D9D9D9] flex justify-center items-center">
+              <img src={MultiKnob} className="absolute" alt="" />
+              <img
+                style={{
+                  rotate: `${-30 + multiplication * 27.5}deg`,
+                  transition: "1s ease-out"
+                }}
+                src={MultiController}
+                className="origin-left ml-12 relative"
+                alt=""
+              />
+            </div>
           </div>
           <h3 className="text-center text-2xl w-[620px]">Front View</h3>
           <div className="w-[620px] mt-4 h-[180px] flex justify-center items-center bg-[#D9D9D9]">
@@ -178,25 +237,41 @@ function Leibniz({ prevFunc }: PropType) {
                   ADD
                 </button>
                 <button
-                  onClick={handleSubtract} className="bg-[#2B78E4] w-[180px] h-[65px] text-2xl text-white">
+                  onClick={handleSubtract}
+                  className="bg-[#2B78E4] w-[180px] h-[65px] text-2xl text-white"
+                >
                   SUBTRACT
                 </button>
-                <button className="bg-[#2B78E4] w-[180px] h-[65px] text-2xl text-white">
+                <button
+                  onClick={handleMultiply}
+                  className="bg-[#2B78E4] w-[180px] h-[65px] text-2xl text-white"
+                >
                   MULTIPLY
                 </button>
               </div>
             ) : (
               <h3 className="w-[620px] text-3xl font-bold flex justify-around items-center">
                 {operationStatus.split("-")[1]}!
-                <button onClick={() => {
-                  setStep(1)
-                  setUserInput(0)
-                }} className="bg-[#2B78E4] w-[180px] h-[65px] text-2xl text-white">
+                <button
+                  onClick={() => {
+                    setStep(1);
+                    setUserInput(0);
+                    setMultiplication(0);
+                  }}
+                  className="bg-[#2B78E4] w-[180px] h-[65px] text-2xl text-white"
+                >
                   REPEAT?
                 </button>
               </h3>
             )}
           </div>
+          <p className="mt-10">
+            *This is a simplified version and you can only multiply by single
+            digit numbers (second input)
+            <br />
+            in case you're trying to look for bugs there are <i>many</i> bugs
+            and I probably wont fix them cuz m lazy
+          </p>
         </div>
       </div>
     </>
