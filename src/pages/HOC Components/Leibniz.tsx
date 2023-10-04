@@ -13,7 +13,7 @@ type PropType = {
   prevFunc: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
-function Leibniz({ prevFunc }: PropType) {
+function Leibniz({ prevFunc, nextFunc }: PropType) {
   const [userInput, setUserInput] = useState(0);
   const [step, setStep] = useState(1);
   const [userInputDisplay, setUserInputDisplay] = useState<number[]>([0, 0, 0]);
@@ -136,12 +136,12 @@ function Leibniz({ prevFunc }: PropType) {
           >
             Previous Slide
           </button>
-          {/* <button
+          <button
             onClick={nextFunc}
             className="bg-[#2B78E4] ml-12 w-[200px] h-[65px] text-2xl text-white mt-12"
           >
             Next Slide
-          </button> */}
+          </button>
         </div>
         <div id="leibniz-machine" className="px-24 pt-12">
           <h3 className="text-center text-2xl mb-4 w-[620px]">Top View</h3>

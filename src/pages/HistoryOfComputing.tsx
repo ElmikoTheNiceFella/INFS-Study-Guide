@@ -2,13 +2,14 @@ import "../App.css";
 import Abacus from "./HOC Components/Abacus";
 import Leibniz from "./HOC Components/Leibniz";
 import Pascaline from "./HOC Components/Pascaline";
+import Sorry from "./HOC Components/Sorry";
 import { useState } from "react";
 
 // Colors: { Yellow: FFC107, Blue: 2B78E4}
 function HistoryOfComputing() {
   const [tracker, setTracker] = useState(1);
 
-  const dates: string[] = ["500 BC", "1642 AD"];
+  const dates: string[] = ["500 BC", "1642 AD", "1674 AD"];
 
   const handleNext = () => {
     setTracker((t) => t + 1);
@@ -23,7 +24,9 @@ function HistoryOfComputing() {
       <div className="flex justify-center gap-4 py-4">
         {dates.map((date, i) => (
           <div key={i} className="flex justify-center items-center gap-4">
-            <p className="font-semibold bg-[#2B78E4] text-white px-6 py-2 rounded-full text-lg">
+            <p style={{
+              backgroundColor: i+1 == tracker ? "#2B78E4" : "black"
+            }} className="font-semibold text-white px-6 py-2 rounded-full text-lg">
               {date}
             </p>
             <div
@@ -42,7 +45,7 @@ function HistoryOfComputing() {
         <Pascaline nextFunc={handleNext} prevFunc={handlePrev} />
       ) : tracker == 3 ? (
         <Leibniz nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : (
+      ) : tracker == 4 ? <Sorry nextFunc={handleNext} prevFunc={handlePrev} /> : (
         "No More Slides"
       )}
     </>

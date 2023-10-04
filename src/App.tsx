@@ -1,5 +1,6 @@
 import Main from "./pages/Main";
 import HistoryOfComputing from "./pages/HistoryOfComputing";
+import HOCQuiz from "./pages/HOCQuiz";
 import {Routes, Route} from "react-router-dom";
 
 
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/history-of-computing" element={<HistoryOfComputing />} />
+        <Route path="/hoc-quiz" element={<HOCQuiz />} />
       </Routes>
     </>
   );
