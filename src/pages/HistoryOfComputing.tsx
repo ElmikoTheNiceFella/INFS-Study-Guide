@@ -5,13 +5,26 @@ import Pascaline from "./HOC Components/Pascaline";
 import Sorry from "./HOC Components/Sorry";
 import Loom from "./HOC Components/Loom";
 import CharlesBabbage from "./HOC Components/CharlesBabbage";
+import DifferenceEngine from "./HOC Components/DifferenceEngine";
 import { useState } from "react";
+import AdaLovelace from "./HOC Components/AdaLovelace";
+import HermanHollerith from "./HOC Components/HermanHollerith";
 
 // Colors: { Yellow: FFC107, Blue: 2B78E4}
 function HistoryOfComputing() {
   const [tracker, setTracker] = useState(1);
 
-  const dates: string[] = ["500 BC", "1642 AD", "1674 AD", "#", "1805 AD", "1822-1836 AD"];
+  const dates: string[] = [
+    "500 BC",
+    "1642 AD",
+    "1674 AD",
+    "#",
+    "1805 AD",
+    "Babbage",
+    "1822 AD",
+    "Lovelace",
+    "Hollerith"
+  ];
 
   const handleNext = () => {
     setTracker((t) => t + 1);
@@ -25,7 +38,11 @@ function HistoryOfComputing() {
       {/* The Dates Are Here */}
       <div className="flex justify-center gap-4 py-4">
         {dates.map((date, i) => (
-          <div key={i} className="flex justify-center items-center gap-4">
+          <div
+            onClick={() => setTracker(i + 1)}
+            key={i}
+            className="flex justify-center items-center gap-4 cursor-pointer"
+          >
             <p
               style={{
                 backgroundColor: i + 1 == tracker ? "#2B78E4" : "black",
@@ -56,6 +73,12 @@ function HistoryOfComputing() {
         <Loom nextFunc={handleNext} prevFunc={handlePrev} />
       ) : tracker == 6 ? (
         <CharlesBabbage nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : tracker == 7 ? (
+        <DifferenceEngine nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : tracker == 8 ? (
+        <AdaLovelace nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : tracker == 9 ? (
+        <HermanHollerith nextFunc={handleNext} prevFunc={handlePrev} />
       ) : (
         "No More Slides"
       )}
