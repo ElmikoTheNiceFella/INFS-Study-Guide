@@ -17,8 +17,9 @@ function CharlesBabbage({ prevFunc, nextFunc }: PropType) {
             computational machine was based on the method of finite differences
             <br />
             <br />
-            <strong>Analytical Engine (1834-1836) :</strong> Babbage’s first
-            computational machine was based on the method of finite differences
+            <strong>Analytical Engine (1834-1836) :</strong> Babbage’s more
+            general “computer”<br/>Never built, but its design is considered to be
+            the foundation of modern computing
           </p>
           <button
             onClick={prevFunc}
