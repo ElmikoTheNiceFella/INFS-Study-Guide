@@ -11,6 +11,7 @@ import AdaLovelace from "./HOC Components/AdaLovelace";
 import HermanHollerith from "./HOC Components/HermanHollerith";
 import CensusMachine from "./HOC Components/CensusMachine";
 import HistoryOfIBM from "./HOC Components/HistoryOfIBM";
+import Mark1 from "./HOC Components/Mark1";
 
 // Colors: { Yellow: FFC107, Blue: 2B78E4}
 function HistoryOfComputing() {
@@ -41,7 +42,7 @@ function HistoryOfComputing() {
   return (
     <>
       {/* The Dates Are Here */}
-      <div className="flex justify-center gap-4 pt-4 pb-12">
+      <div className="flex justify-center gap-4 py-4">
         {dates.map((date, i) => (
           <div key={i} className="flex justify-center items-center gap-4">
             <p
@@ -83,7 +84,11 @@ function HistoryOfComputing() {
         <HermanHollerith nextFunc={handleNext} prevFunc={handlePrev} />
       ) : tracker == 10 ? (
         <CensusMachine nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 11 ? <HistoryOfIBM nextFunc={handleNext} prevFunc={handlePrev} /> : (
+      ) : tracker == 11 ? (
+        <HistoryOfIBM nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : tracker == 12 ? (
+        <Mark1 nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : (
         "No More Slides"
       )}
     </>
