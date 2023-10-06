@@ -40,16 +40,13 @@ function HistoryOfComputing() {
       {/* The Dates Are Here */}
       <div className="flex justify-center gap-4 py-4">
         {dates.map((date, i) => (
-          <div
-            onClick={() => setTracker(i + 1)}
-            key={i}
-            className="flex justify-center items-center gap-4 cursor-pointer"
-          >
+          <div key={i} className="flex justify-center items-center gap-4">
             <p
               style={{
                 backgroundColor: i + 1 == tracker ? "#2B78E4" : "black",
               }}
-              className="font-semibold text-white px-4 py-2 rounded-full text-sm"
+              onClick={() => setTracker(i + 1)}
+              className="font-semibold text-white px-4 py-2 rounded-full text-sm cursor-pointer"
             >
               {date}
             </p>
@@ -57,7 +54,7 @@ function HistoryOfComputing() {
               style={{
                 display: i + 1 == dates.length ? "none" : "block",
               }}
-              className="w-12 h-1 rounded-full bg-black"
+              className="w-8 h-1 rounded-full bg-black"
             ></div>
           </div>
         ))}

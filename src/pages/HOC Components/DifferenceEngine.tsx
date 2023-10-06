@@ -7,7 +7,7 @@ function DifferenceEngine({nextFunc, prevFunc}:PropType) {
   return (
       <div className="pt-24 grid place-items-center text-center">
         <h1 className="text-4xl font-semibold pb-12 underline">
-          Optional: Babbage's Difference Engine
+          Optional: Babbage's Difference Engine (has music*)
         </h1>
         <iframe
           width="640"
