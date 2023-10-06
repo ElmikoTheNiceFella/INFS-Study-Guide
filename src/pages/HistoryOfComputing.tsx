@@ -10,6 +10,7 @@ import { useState } from "react";
 import AdaLovelace from "./HOC Components/AdaLovelace";
 import HermanHollerith from "./HOC Components/HermanHollerith";
 import CensusMachine from "./HOC Components/CensusMachine";
+import HistoryOfIBM from "./HOC Components/HistoryOfIBM";
 
 // Colors: { Yellow: FFC107, Blue: 2B78E4}
 function HistoryOfComputing() {
@@ -26,6 +27,8 @@ function HistoryOfComputing() {
     "Lovelace",
     "Hollerith",
     "1890 AD",
+    "IBM",
+    "1944 AD"
   ];
 
   const handleNext = () => {
@@ -38,7 +41,7 @@ function HistoryOfComputing() {
   return (
     <>
       {/* The Dates Are Here */}
-      <div className="flex justify-center gap-4 py-4">
+      <div className="flex justify-center gap-4 pt-4 pb-12">
         {dates.map((date, i) => (
           <div key={i} className="flex justify-center items-center gap-4">
             <p
@@ -46,7 +49,7 @@ function HistoryOfComputing() {
                 backgroundColor: i + 1 == tracker ? "#2B78E4" : "black",
               }}
               onClick={() => setTracker(i + 1)}
-              className="font-semibold text-white px-4 py-2 rounded-full text-sm cursor-pointer"
+              className="font-semibold text-white px-4 py-2 rounded-full text-[0.7rem] cursor-pointer"
             >
               {date}
             </p>
@@ -80,7 +83,7 @@ function HistoryOfComputing() {
         <HermanHollerith nextFunc={handleNext} prevFunc={handlePrev} />
       ) : tracker == 10 ? (
         <CensusMachine nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : (
+      ) : tracker == 11 ? <HistoryOfIBM nextFunc={handleNext} prevFunc={handlePrev} /> : (
         "No More Slides"
       )}
     </>

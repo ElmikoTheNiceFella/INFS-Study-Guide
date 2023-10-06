@@ -15,17 +15,18 @@ function Pascaline({ nextFunc, prevFunc }: PropType) {
     if (pascalineArray[index] <= 9) {
       setKnobRotation((prev) => {
         const arr = [...prev];
-        arr[index] += 72;
+        if (pascalineArray[index] != 9 || index != 0) arr[index] += 72;
         return arr;
       });
       setPascalineArray((prev) => {
         const arr = [...prev];
-        if (pascalineArray[index] == 9 && index != 0) {
-          arr[index] = 0;
-          arr[index-1]++;
-        } else {
-          arr[index]++;
-        }
+        if (pascalineArray[index] == 9 && index == 0) return arr;
+          if (pascalineArray[index] == 9 && index != 0) {
+            arr[index] = 0;
+            arr[index - 1] += arr[index - 1] == 9 ? 0 : 1;
+          } else {
+            arr[index]++;
+          }
         return arr;
       });
     }
