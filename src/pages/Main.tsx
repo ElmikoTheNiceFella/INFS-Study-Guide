@@ -20,12 +20,12 @@ function Main() {
             >
               History Of Computing - Interactive Guide
             </NavLink>
-            {/* <NavLink
-              to="/hoc-quiz"
+            <NavLink
+              to="/nsc-practice"
               className="bg-[#2B78E4] text-white py-5 px-8 text-center text-xl"
             >
-              History Of Computing - Quiz
-            </NavLink> */}
+              Numbers System Conversion - Practice
+            </NavLink>
           </div>
         </div>
       </div>
