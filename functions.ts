@@ -26,8 +26,3 @@ export function toAbacus(num:number):(string | string[]) {
   // Return unknown[] as string[]
   return finalArray as string[];
 }
-
-function toBinary(number:number):string {
-  
-  return number.toString(2);
-}

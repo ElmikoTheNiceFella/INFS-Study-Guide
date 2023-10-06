@@ -82,8 +82,8 @@ function Converting() {
         Convert <span className="text-[#2B78E4]">{initialValue}</span> to the
         following formats
       </h1>
-      <p className="flex items-center gap-4 mb-4 mt-12">
-        <div className="text-2xl w-48">Binary:</div>
+      <div className="flex items-center gap-4 mb-4 mt-12">
+        <p className="text-2xl w-48">Binary:</p>
         <input
           className="border-2 border-[#202020] h-12 w-[400px] text-center text-2xl "
           type="text"
@@ -98,9 +98,9 @@ function Converting() {
         >
           {answers[0]}
         </div>
-      </p>
-      <p className="flex items-center gap-4 my-4">
-        <div className="text-2xl w-48">Decimal:</div>
+      </div>
+      <div className="flex items-center gap-4 my-4">
+        <p className="text-2xl w-48">Decimal:</p>
         <input
           className="border-2 border-[#202020] h-12 w-[400px] text-center text-2xl "
           type="text"
@@ -115,9 +115,9 @@ function Converting() {
         >
           {answers[1]}
         </div>
-      </p>
-      <p className="flex items-center gap-4 my-4">
-        <div className="text-2xl w-48">Hexadecimal:</div>
+      </div>
+      <div className="flex items-center gap-4 my-4">
+        <p className="text-2xl w-48">Hexadecimal:</p>
         <input
           className="border-2 border-[#202020] h-12 w-[400px] text-center text-2xl "
           type="text"
@@ -132,7 +132,7 @@ function Converting() {
         >
           {answers[2]}
         </div>
-      </p>
+      </div>
       <div className="flex gap-8">
         <button
           onClick={handleCheck}
