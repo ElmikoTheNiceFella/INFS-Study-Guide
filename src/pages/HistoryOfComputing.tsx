@@ -9,6 +9,7 @@ import DifferenceEngine from "./HOC Components/DifferenceEngine";
 import { useState } from "react";
 import AdaLovelace from "./HOC Components/AdaLovelace";
 import HermanHollerith from "./HOC Components/HermanHollerith";
+import CensusMachine from "./HOC Components/CensusMachine";
 
 // Colors: { Yellow: FFC107, Blue: 2B78E4}
 function HistoryOfComputing() {
@@ -23,7 +24,8 @@ function HistoryOfComputing() {
     "Babbage",
     "1822 AD",
     "Lovelace",
-    "Hollerith"
+    "Hollerith",
+    "1890 AD",
   ];
 
   const handleNext = () => {
@@ -79,6 +81,8 @@ function HistoryOfComputing() {
         <AdaLovelace nextFunc={handleNext} prevFunc={handlePrev} />
       ) : tracker == 9 ? (
         <HermanHollerith nextFunc={handleNext} prevFunc={handlePrev} />
+      ) : tracker == 10 ? (
+        <CensusMachine nextFunc={handleNext} prevFunc={handlePrev} />
       ) : (
         "No More Slides"
       )}
