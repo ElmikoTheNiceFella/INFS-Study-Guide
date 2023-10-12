@@ -46,7 +46,7 @@ function GradeCalc() {
     console.log(grades);
     console.log(numberOfInputs);
 
-    let finalGrade = 0;
+    // Calculate final grade here
 
     setNumberOfInputs([0, 0, 0, 0]);
     setGrades({
