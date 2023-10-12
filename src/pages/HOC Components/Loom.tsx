@@ -14,7 +14,7 @@ function Loom({nextFunc, prevFunc}:PropType) {
           Developed by Joseph-Marie Jacquard. The loom was controlled by a loop
           of punched cards. Holes in the punched cards determined how the
           knitting proceeded, yielding very complex weaves at a much faster
-          rate. 5
+          rate.
         </p>
         <button
           onClick={prevFunc}
