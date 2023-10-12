@@ -26,6 +26,12 @@ function Main() {
             >
               Numbers System Conversion - Practice
             </NavLink>
+            <NavLink
+              to="/grade-calculator"
+              className="bg-[#2B78E4] text-white py-5 px-8 text-center text-xl"
+            >
+              Grade Calculator
+            </NavLink>
           </div>
         </div>
       </div>
