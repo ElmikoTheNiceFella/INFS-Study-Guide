@@ -42,6 +42,21 @@ function GradeCalc() {
 
   const gradesKeys = Object.keys(grades) as Grades[];
 
+  const handleCalculate = () => {
+    console.log(grades);
+    console.log(numberOfInputs);
+
+    let finalGrade = 0;
+
+    setNumberOfInputs([0, 0, 0, 0]);
+    setGrades({
+      quiz: [0, 0],
+      labs: [0, 0, 0, 0, 0, 0, 0, 0],
+      assignment: [0],
+      midterm: [0],
+    });
+  }
+
   return (
     <div className="flex flex-col items-center h-screen justify-center">
       <h1 className="text-4xl font-semibold text-center w-[60%] leading-[3rem] mb-12">
@@ -66,15 +81,7 @@ function GradeCalc() {
           </button>
         </div>
       ))}
-      <button onClick={() => {
-        console.log(grades)
-        setGrades({
-          quiz: [0, 0],
-          labs: [0, 0, 0, 0, 0, 0, 0, 0],
-          assignment: [0],
-          midterm: [0],
-        })
-      }} className="bg-[#2B78E4] w-[416px] h-[65px] text-2xl text-white mt-12">
+      <button onClick={handleCalculate} className="bg-[#2B78E4] w-[416px] h-[65px] text-2xl text-white mt-12">
         CALCULATE
       </button>
     </div>
