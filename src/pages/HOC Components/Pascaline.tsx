@@ -90,6 +90,7 @@ function Pascaline({ nextFunc, prevFunc }: PropType) {
                     style={{
                       transform: `rotate(${knobRotation[i]}deg)`,
                       transition: "0.2s ease",
+                      transformOrigin: "36.5px 38.5px"
                     }}
                     src={Rotatable}
                     className="absolute mt-[-19px]"
