@@ -2,7 +2,6 @@ import "../App.css";
 import Abacus from "./HOC Components/Abacus";
 import Leibniz from "./HOC Components/Leibniz";
 import Pascaline from "./HOC Components/Pascaline";
-import Sorry from "./HOC Components/Sorry";
 import Loom from "./HOC Components/Loom";
 import CharlesBabbage from "./HOC Components/CharlesBabbage";
 import DifferenceEngine from "./HOC Components/DifferenceEngine";
@@ -21,7 +20,6 @@ function HistoryOfComputing() {
     "500 BC",
     "1642 AD",
     "1674 AD",
-    "#",
     "1805 AD",
     "Babbage",
     "1822 AD",
@@ -71,24 +69,22 @@ function HistoryOfComputing() {
       ) : tracker == 3 ? (
         <Leibniz nextFunc={handleNext} prevFunc={handlePrev} />
       ) : tracker == 4 ? (
-        <Sorry nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 5 ? (
         <Loom nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 6 ? (
+      ) : tracker == 5 ? (
         <CharlesBabbage nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 7 ? (
+      ) : tracker == 6 ? (
         <DifferenceEngine nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 8 ? (
+      ) : tracker == 7 ? (
         <AdaLovelace nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 9 ? (
+      ) : tracker == 8 ? (
         <HermanHollerith nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 10 ? (
+      ) : tracker == 9 ? (
         <CensusMachine nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 11 ? (
+      ) : tracker == 10 ? (
         <HistoryOfIBM nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : tracker == 12 ? (
+      ) : tracker == 11 ? (
         <Mark1 nextFunc={handleNext} prevFunc={handlePrev} />
-      ) : (
+      ) :(
         "No More Slides"
       )}
     </>
