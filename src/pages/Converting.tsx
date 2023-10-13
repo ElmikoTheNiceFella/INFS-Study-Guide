@@ -78,7 +78,7 @@ function Converting() {
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-semibold text-center w-[60%] leading-[3rem] ">
+      <h1 className="text-4xl font-semibold text-center w-[60%] leading-[3rem]">
         Convert <span className="text-[#2B78E4]">{initialValue}</span> to the
         following formats
       </h1>
